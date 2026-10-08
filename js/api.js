@@ -1,5 +1,9 @@
 const URL_BASE = "http://localhost:3000"
 
+const converterStringParaData = (dataString) => {
+  const [ano, mes, dia] = dataString.split("-")
+}
+
 const api = {
   async buscarPensamentos() {
     try {
