@@ -58,6 +58,10 @@ const ui = {
     pensamentoAutoria.textContent = pensamento.autoria
     pensamentoAutoria.classList.add("pensamento-autoria")
 
+    const pensamentoData = document.createElement("div")
+    pensamentoData.textContent = pensamento.data
+    pensamentoData.classList.add("pensamento-data")
+
     const botaoEditar = document.createElement("button")
     botaoEditar.classList.add("botao-editar")
     botaoEditar.onclick = () => ui.preencherFormulario(pensamento.id)
