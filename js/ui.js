@@ -87,7 +87,8 @@ const ui = {
     botaoFavorito.classList.add("botao-favorito")
 
     const iconeFavorito = document.createElement("img")
-    iconeFavorito.src = "assets/imagens/icone-favorito_outline.png"
+    iconeFavorito.src = pensamento.favorito ? "assets/imagens/icone-favorito.png" :
+    "assets/imagens/icone-favorito_outline.png"
     iconeFavorito.alt = "icone de favorito"
     botaoFavorito.appendChild(iconeFavorito)
 
