@@ -7,6 +7,7 @@ const ui = {
     document.getElementById("pensamento-id").value = pensamento.id
     document.getElementById("pensamento-conteudo").value = pensamento.conteudo
     document.getElementById("pensamento-autoria").value = pensamento.autoria
+    document.getElementById("pensamento-data").value = pensamento.data
   },
 
   limparFormulario() {
@@ -113,6 +114,7 @@ const ui = {
     li.appendChild(iconeAspas)
     li.appendChild(pensamentoConteudo)
     li.appendChild(pensamentoAutoria)
+    li.appendChild(pensamentoData)
     li.appendChild(icones)
     listaPensamentos.appendChild(li)
   }
