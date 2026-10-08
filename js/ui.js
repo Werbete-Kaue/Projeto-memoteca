@@ -87,7 +87,7 @@ const ui = {
     botaoFavorito.classList.add("botao-favorito")
     botaoFavorito.onclick = async () => {
       try {
-        await api.atualizarFavorito(pensamento.id, pensamento.favorito)
+        await api.atualizarFavorito(pensamento.id, !pensamento.favorito)
         ui.renderizarPensamentos()
       } catch (error) {
         alert("Erro ao atualizar pensamento")
