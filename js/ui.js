@@ -56,7 +56,16 @@ const ui = {
     pensamentoConteudo.classList.add("pensamento-conteudo")
 
     const pensamentoAutoria = document.createElement("div")
-    const dataFormatada = pensamento.data.toLocaleDateString("pt-BR")
+
+    var options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      timeZone: "UTC"
+    }
+
+    const dataFormatada = pensamento.data.toLocaleDateString("pt-BR", options)
     pensamentoAutoria.textContent = pensamento.autoria
     pensamentoAutoria.classList.add("pensamento-autoria")
 
