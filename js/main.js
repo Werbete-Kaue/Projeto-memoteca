@@ -2,9 +2,22 @@ import ui from "./ui.js"
 import api from "./api.js"
 
 const regexConteudo = /^[A-Za-z\s]$/
+const regexAutoria = /^[a-zA-Z]{3,15}$/;
 
 function validarConteudo(conteudo) {
   return regexConteudo.test(conteudo)
+}
+
+function validarAutoria(autoria) {
+  return regexAutoria.test(autoria);
+}
+
+async function manipularSubmissaoFormulario(event) {
+ 
+  if (!validarAutoria(autoria)) {
+    alert("É permitida a inclusão de letras e entre 3 e 15 caracteres sem espaços")
+    return
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
