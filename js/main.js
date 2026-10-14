@@ -35,7 +35,11 @@ async function manipularSubmissaoFormulario(event) {
   const autoria = document.getElementById("pensamento-autoria").value
   const data = document.getElementById("pensamento-data").value
 
-if (!validarConteudo(conteudo)) {
+
+  const conteudoSemEspacos = removerEspacos(conteudo)
+  const autoriaSemEspacos = removerEspacos(autoria)
+
+if (!validarConteudo(conteudoSemEspacos)) {
     alert("É permitida a inclusão apenas de letras e espaços com no mínimo 10 caracteres")
     return
 }
@@ -44,7 +48,7 @@ if (!validarConteudo(conteudo)) {
     alert("Não é permitido o cadastro de datas futuras. Selecione outra data")
   }
 
-  if (!validarAutoria(autoria)) {
+  if (!validarAutoria(autoriaSemEspacos)) {
     alert("É permitida a inclusão de letras e entre 3 e 15 caracteres sem espaços")
     return
   }
