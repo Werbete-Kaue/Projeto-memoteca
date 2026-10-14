@@ -1,6 +1,10 @@
 import ui from "./ui.js"
 import api from "./api.js"
 
+function removerEspacos(string) {
+  return string.replaceAll(/\s+/g, "")
+}
+
 const regexConteudo = /^[A-Za-z\s]$/
 const regexAutoria = /^[a-zA-Z]{3,15}$/;
 
