@@ -7,7 +7,8 @@ const ui = {
     document.getElementById("pensamento-id").value = pensamento.id
     document.getElementById("pensamento-conteudo").value = pensamento.conteudo
     document.getElementById("pensamento-autoria").value = pensamento.autoria
-    document.getElementById("pensamento-data").value = pensamento.data.toISOString().split("T")[0]
+    document.getElementById("pensamento-data").value = pensamento.data.
+    toISOString().split("T")[0]
     document.getElementById("form-container").scrollIntoView()
   },
 
@@ -23,12 +24,12 @@ const ui = {
     try {
       let pensamentosParaRenderizar
 
-      if (pensamentosFiltrados) {
+      if(pensamentosFiltrados) {
         pensamentosParaRenderizar = pensamentosFiltrados
       } else {
         pensamentosParaRenderizar = await api.buscarPensamentos()
       }
-
+      
       if (pensamentosParaRenderizar.length === 0) {
         mensagemVazia.style.display = "block"
       } else {
@@ -57,21 +58,21 @@ const ui = {
     pensamentoConteudo.classList.add("pensamento-conteudo")
 
     const pensamentoAutoria = document.createElement("div")
-
-    var options = {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      timeZone: "UTC"
-    }
-
-    const dataFormatada = pensamento.data.toLocaleDateString("pt-BR", options)
     pensamentoAutoria.textContent = pensamento.autoria
     pensamentoAutoria.classList.add("pensamento-autoria")
 
     const pensamentoData = document.createElement("div")
-    pensamentoData.textContent = dataFormatada
+
+    var options = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC'
+    }
+    const dataFormatada = pensamento.data.toLocaleDateString('pt-BR', options)
+    const dataComRegex = dataFormatada.replace(/^(\w)/, (match) => match.toUpperCase())
+    pensamentoData.textContent = dataComRegex
     pensamentoData.classList.add("pensamento-data")
 
     const botaoEditar = document.createElement("button")
@@ -111,9 +112,10 @@ const ui = {
     }
 
     const iconeFavorito = document.createElement("img")
-    iconeFavorito.src = pensamento.favorito ? "assets/imagens/icone-favorito.png" :
+    iconeFavorito.src = pensamento.favorito ? 
+    "assets/imagens/icone-favorito.png" :
     "assets/imagens/icone-favorito_outline.png"
-    iconeFavorito.alt = "icone de favorito"
+    iconeFavorito.alt = "Ícone de favorito"
     botaoFavorito.appendChild(iconeFavorito)
 
     const icones = document.createElement("div")
