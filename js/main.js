@@ -12,14 +12,6 @@ function validarAutoria(autoria) {
   return regexAutoria.test(autoria);
 }
 
-async function manipularSubmissaoFormulario(event) {
- 
-  if (!validarAutoria(autoria)) {
-    alert("É permitida a inclusão de letras e entre 3 e 15 caracteres sem espaços")
-    return
-  }
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   ui.renderizarPensamentos()
 
@@ -46,6 +38,11 @@ if (!validarConteudo(conteudo)) {
 
   if (!validarData(data)) {
     alert("Não é permitido o cadastro de datas futuras. Selecione outra data")
+  }
+
+  if (!validarAutoria(autoria)) {
+    alert("É permitida a inclusão de letras e entre 3 e 15 caracteres sem espaços")
+    return
   }
 
   try {
